@@ -2,15 +2,15 @@ package com.modes.observer;
 
 public class Advertisers implements observer{
     private String name;
-    private Channel newchannel;
+    private Service newchannel;
 
-    public Advertisers(Channel ch, String name){
+    public Advertisers(Service ch, String name){
         this.newchannel = ch;
         this.name = name;
         this.newchannel.Subscribe(this);
     }
     @Override
-    public void update() {
-        System.out.println("Mr. " + this.name + " please advertise the new video uploaded: " + newchannel.getrecentvideo());
+    public void update(Service ch) {
+        System.out.println("Mr. " + this.name + " please advertise the new video uploaded from "+  ch.getname() + ": " + newchannel.getrecentvideo());
     }
 }
